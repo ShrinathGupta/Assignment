@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('../partials/head'); %>
+</head>
+<style >
+ 
+table, th, td {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+table td {
+  padding: 0.5rem;
+  border: 4px double grey;
+}
+tr td{
+  width: 150px !important;
+}
+        
+button {
+  margin: 8px;
+  border-radius: 6px;
+}
+ 
+</style>
+<body>
+
+
+<div class="container">
+  <div class="row">
+    <a href="/">Back to the start</a>
+  </div>
+  <div class="row">    
+    <div>
+<table >
+  <tr>
+    <td></td>
+    <td>
+      <form action="/" method="POST" >
+        <% if(data.story1 !== undefined && data.story1.text.trim().length > 0) { %>
+          <div><a href=<%= data.story1.id %>><%= data.story1.text %></a> </div>
+          
+         <% } else { %> 
+          <input type="hidden" name="parentId" value=<%= parentId %> />
+          <textarea type="text" placeholder="write story" name="story1" rows="2"  > </textarea><br>
+          <button type="submit" id="order" >Submit</button>
+          <% } %>
+      </form>
+    </td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>
+      <form action='/' method="POST" >
+        <% if(data.story2 !== undefined && data.story2.text.trim().length > 0) { %>
+          <div> <a href=<%= data.story2.id %>><%= data.story2.text %></a> </div>
+      
+     <% } else { %>
+      <input type="hidden" name="parentId" value=<%= parentId %> />
+      <textarea type="text" placeholder="write story" name="story2" rows="2"   > </textarea><br>
+      <button type="submit" id="order" >Submit</button>
+     <% } %>
+        
+      </form>
+    </td>
+    <td> 
+     <%= parentText %>
+    </td>
+    <td>
+      <form action="/" method="POST" >
+        <% if(data.story3 !== undefined && data.story3.text.trim().length > 0) { %>
+          <div> <a href=<%= data.story3.id %>><%= data.story3.text %></a> </div>
+          
+         <% } else { %> 
+        <input type="hidden" name="parentId" value=<%= parentId %> />
+        <textarea type="text"  placeholder="write story" name="story3" rows="2" > </textarea><br>
+        <button type="submit" id="order" >Submit</button>
+        <% } %>
+      </form>
+    </td>
+  </tr>
+  <tr>
+    <td></td>
+    <td>
+      <form action="/" method="POST" >
+        <% if(data.story4 !== undefined && data.story4.text.trim().length > 0) { %>
+          <div> <a href=<%= data.story4.id %>><%= data.story4.text %></a> </div>
+          
+         <% } else { %> 
+         <input type="hidden" name="parentId" value=<%= parentId %> />
+        <textarea type="text" placeholder="write story" name="story4" rows="2"  > </textarea><br>
+        <button type="submit" id="order" >Submit</button>
+        <% } %>
+      </form>
+    </td>
+    <td></td>
+  </tr>
+</table>
+</div>
+     
+  </div>
+</div>
+ 
+</body>
+</html>
