@@ -12,9 +12,10 @@ In this assingment we have to create nested stories in the form of tree structur
 ## Set-up
 
 1. Install [nodeJs](https://nodejs.org/en/).
-2. Install [yarn](https://yarnpkg.com/) paackge manager.
-3. `yarn run start:dev`
-4. Visit [localhost:7070](http://localhost:7070/).
+2. Install [yarn](https://yarnpkg.com/) package manager.
+3. Run `yarn install` to install packages.
+4. Run `yarn run start:dev`
+5. Visit [localhost:7070](http://localhost:7070/).
 
 ### **Code walk through**
 
