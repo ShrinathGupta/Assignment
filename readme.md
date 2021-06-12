@@ -16,14 +16,14 @@ In this assingment we have to create nested stories in the form of tree structur
 3. `yarn run start:dev`
 4. Visit [localhost:7070](http://localhost:7070/).
 
-### Code walk through
+### **Code walk through**
 
 * **~/src**
     This is the main directory which has helper functions, interface and tree class.
 * **~/src/helpers**
     Inside this file we have three methods which are responsible to add and fetch the data from main source class.
 * **~/src/test**
-  This directory contains test cases
+  This directory contains unit test cases.
 * **~/src/views**
   Inside this we have views.
   `/views/pages/index.ejs` is default view of application. In this ejs file we have added onle partial view that is the head of application. 
@@ -33,14 +33,27 @@ In this assingment we have to create nested stories in the form of tree structur
   Inside this we have defined payload for request and response.
 * **~/src/treeNode**
   This is the main class which holds stores data. This class has it's own two methods `addStory` & `getstory`.
+
   I have created two static object one is `count` to maintain unique id for each and every record and `data` as a store.
-  In `addStory` i am creating new record as following data strucutre ``{node:[{story1: ''}], id: 0, parentId:null}``. Each story get added a record in the store. I have considered 4 input boxes as 4 stories. Basically story number is identification to that input box. Because once story is created we have to send created story at that place as a link.
-  While fetching record checking for parentId and Id and send back the data.
+
+  In `addStory` i am creating new record as following data strucutre ``{node:[{story1: ''}], id: 0, parentId:null}``.
+
+  Each story get added a record in the store. I have considered 4 input boxes as 4 stories. Basically story number is identity to particular input box. Once story is created we have to send created story at that box as a link.
+
+  While fetching record checking for parentId and Id then send back the data.
   Addition of every new story we are returning children of current parent.
 * **~/src/index.ts**
 This is file we have defined different end points. When we have large application we can further optimise it to another level like middleware to hanlde all request, we can also have interceptors to intercept every request.
 
-#### Use-Case explanation
+  **Three end points are as followings:**
+
+  `GET '/'` Default end point which is responsible to send index page with default data for the input box. If application is running first time then number of records is zero.
+
+  `GET '/:storyId'` This is reponsible to fetch child of current selected story and Also responsible to fetch root elements data when user click on `Back to state` action.
+
+  `POST '/` This is responsible to create records and return created story then user will not allowed to created same story again for a current parent.
+
+#### **Use-Case explanation**
 
 1. By default user will land to `localhost:7070` and all the empty stories text box will be visible.
 
